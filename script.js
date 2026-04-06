@@ -16,6 +16,11 @@ function calculateTotal() {
     totalCostEl.textContent = total;
 }
 
+function clearList() {
+    shoppingList = [];   // empty the array
+    renderList();        // update UI
+}
+
 
 function addItem() {
     const name = itemInput.value;
