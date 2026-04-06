@@ -40,6 +40,9 @@ function addItem() {
     itemPrice.value = "";
 }
 
+const clearBtn = document.getElementById("clearBtn");
+clearBtn.addEventListener("click", clearList);
+
 
 const itemInput = document.getElementById("itemInput");
 const itemPrice = document.getElementById("itemPrice");
