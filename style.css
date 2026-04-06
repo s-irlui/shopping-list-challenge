@@ -1,74 +1,58 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 50px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #9face6);
     margin: 0;
-    padding: 0;
-
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-
-    min-height: 100vh;
     padding-top: 40px;
+    background: linear-gradient(135deg, #000000, #f1c40f);
 }
 
-body > * {
+.container {
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
 }
 
 h1 {
     text-align: center;
     color: white;
     margin-bottom: 20px;
+    font-weight: bold;
 }
-
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-
+    padding: 5px;
+    margin: 6px 0;
     border: none;
     border-radius: 8px;
-
     outline: none;
     font-size: 14px;
 }
 
-
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 8px;
-
     border: none;
     border-radius: 8px;
-
-    background: #4a6cf7;
-    color: white;
+    background: #f1c40f;
+    color: #000;
     font-weight: bold;
-
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s ease;
 }
 
 button:hover {
-    background: #3a57d6;
-    transform: scale(1.02);
+    transform: scale(1.03);
+    background: #ffd84d;
 }
-
 
 ul {
     list-style: none;
@@ -76,33 +60,25 @@ ul {
     margin-top: 15px;
 }
 
-
 li {
     background: white;
-    padding: 10px;
-    margin-bottom: 8px;
-
-    border-radius: 8px;
-
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
-
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 li:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
 }
-
-
-li {
-    user-select: none;
-}
-
 
 h3 {
     text-align: center;
-    color: white;
     margin-top: 15px;
+    color: white;
+    font-weight: bold;
 }
