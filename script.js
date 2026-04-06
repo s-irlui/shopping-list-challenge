@@ -1,27 +1,19 @@
-
+// ARRAY
 let shoppingList = [];
+
+// DOM ELEMENTS (put these at the top)
+const itemInput = document.getElementById("itemInput");
+const itemPrice = document.getElementById("itemPrice");
+const addBtn = document.getElementById("addBtn");
+const clearBtn = document.getElementById("clearBtn");
+const shoppingListEl = document.getElementById("shoppingList");
 const totalCostEl = document.getElementById("totalCost");
 
+// EVENT LISTENERS
+addBtn.addEventListener("click", addItem);
+clearBtn.addEventListener("click", clearList);
 
-
-function calculateTotal() {
-    let total = 0;
-
-    shoppingList.forEach(item => {
-        if (item.purchased) {
-            total += item.price;
-        }
-    });
-
-    totalCostEl.textContent = total;
-}
-
-function clearList() {
-    shoppingList = [];   // empty the array
-    renderList();        // update UI
-}
-
-
+// ADD ITEM FUNCTION
 function addItem() {
     const name = itemInput.value;
     const price = itemPrice.value;
@@ -45,17 +37,26 @@ function addItem() {
     itemPrice.value = "";
 }
 
-const clearBtn = document.getElementById("clearBtn");
-clearBtn.addEventListener("click", clearList);
-addBtn.addEventListener("click", addItem);
+// CLEAR LIST FUNCTION
+function clearList() {
+    shoppingList = [];
+    renderList();
+}
 
+// CALCULATE TOTAL
+function calculateTotal() {
+    let total = 0;
 
-const itemInput = document.getElementById("itemInput");
-const itemPrice = document.getElementById("itemPrice");
-const addBtn = document.getElementById("addBtn");
-const shoppingListEl = document.getElementById("shoppingList");
+    shoppingList.forEach(item => {
+        if (item.purchased) {
+            total += item.price;
+        }
+    });
 
+    totalCostEl.textContent = total;
+}
 
+// RENDER LIST
 function renderList() {
     shoppingListEl.innerHTML = "";
 
@@ -77,6 +78,5 @@ function renderList() {
         shoppingListEl.appendChild(li);
     });
 
-    
     calculateTotal();
 }
