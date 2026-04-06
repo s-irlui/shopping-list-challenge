@@ -7,16 +7,15 @@ const clearBtn = document.getElementById("clearBtn");
 const shoppingListEl = document.getElementById("shoppingList");
 const totalCostEl = document.getElementById("totalCost");
 
-// EVENT LISTENERS
+
 addBtn.addEventListener("click", addItem);
 clearBtn.addEventListener("click", clearList);
 
-// SAVE TO STORAGE
+
 function saveToStorage() {
     localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
 }
 
-// ADD ITEM
 function addItem() {
     const name = itemInput.value;
     const price = itemPrice.value;
@@ -41,14 +40,14 @@ function addItem() {
     itemPrice.value = "";
 }
 
-// CLEAR LIST
+
 function clearList() {
     shoppingList = [];
     saveToStorage();
     renderList();
 }
 
-// CALCULATE TOTAL
+
 function calculateTotal() {
     let total = 0;
 
@@ -61,7 +60,7 @@ function calculateTotal() {
     totalCostEl.textContent = total;
 }
 
-// RENDER LIST
+
 function renderList() {
     shoppingListEl.innerHTML = "";
 
@@ -75,14 +74,14 @@ function renderList() {
             li.style.color = "gray";
         }
 
-        // toggle purchased
+        
         li.addEventListener("click", function () {
             item.purchased = !item.purchased;
             saveToStorage();
             renderList();
         });
 
-        // edit item
+        
         li.addEventListener("dblclick", function () {
             const newName = prompt("Edit item name:", item.name);
 
@@ -99,5 +98,5 @@ function renderList() {
     calculateTotal();
 }
 
-// INITIAL LOAD
+
 renderList();
