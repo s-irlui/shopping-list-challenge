@@ -1,7 +1,5 @@
-// ARRAY
 let shoppingList = [];
 
-// DOM ELEMENTS (put these at the top)
 const itemInput = document.getElementById("itemInput");
 const itemPrice = document.getElementById("itemPrice");
 const addBtn = document.getElementById("addBtn");
@@ -13,7 +11,7 @@ const totalCostEl = document.getElementById("totalCost");
 addBtn.addEventListener("click", addItem);
 clearBtn.addEventListener("click", clearList);
 
-// ADD ITEM FUNCTION
+// ADD ITEM
 function addItem() {
     const name = itemInput.value;
     const price = itemPrice.value;
@@ -37,7 +35,7 @@ function addItem() {
     itemPrice.value = "";
 }
 
-// CLEAR LIST FUNCTION
+// CLEAR LIST
 function clearList() {
     shoppingList = [];
     renderList();
@@ -65,14 +63,26 @@ function renderList() {
 
         li.textContent = `${item.name} - ${item.price}`;
 
+        
         if (item.purchased) {
             li.style.textDecoration = "line-through";
             li.style.color = "gray";
         }
 
+        
         li.addEventListener("click", function () {
             item.purchased = !item.purchased;
             renderList();
+        });
+
+        ✏️
+        li.addEventListener("dblclick", function () {
+            const newName = prompt("Edit item name:", item.name);
+
+            if (newName !== null && newName.trim() !== "") {
+                item.name = newName;
+                renderList();
+            }
         });
 
         shoppingListEl.appendChild(li);
