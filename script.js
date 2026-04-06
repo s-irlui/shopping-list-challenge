@@ -1,4 +1,17 @@
-// Array to store items
+const totalCostEl = document.getElementById("totalCost");
+
+
+function calculateTotal() {
+    let total = 0;
+
+    shoppingList.forEach(item => {
+        if (item.purchased) {
+            total += item.price;
+        }
+    });
+
+    totalCostEl.textContent = total;
+}
 let shoppingList = [];
 
 // Get elements
