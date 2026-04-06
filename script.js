@@ -75,7 +75,7 @@ function renderList() {
             renderList();
         });
 
-        ✏️
+        
         li.addEventListener("dblclick", function () {
             const newName = prompt("Edit item name:", item.name);
 
