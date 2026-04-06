@@ -27,3 +27,82 @@ body > * {
     width: 100%;
     max-width: 420px;
 }
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+
+    border: none;
+    border-radius: 8px;
+
+    outline: none;
+    font-size: 14px;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #4a6cf7;
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #3a57d6;
+    transform: scale(1.02);
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+
+li {
+    background: white;
+    padding: 10px;
+    margin-bottom: 8px;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+
+li {
+    user-select: none;
+}
+
+
+h3 {
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+}
