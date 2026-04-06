@@ -1,4 +1,4 @@
-let shoppingList = [];
+let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
 
 const itemInput = document.getElementById("itemInput");
 const itemPrice = document.getElementById("itemPrice");
@@ -10,6 +10,11 @@ const totalCostEl = document.getElementById("totalCost");
 // EVENT LISTENERS
 addBtn.addEventListener("click", addItem);
 clearBtn.addEventListener("click", clearList);
+
+// SAVE TO STORAGE
+function saveToStorage() {
+    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+}
 
 // ADD ITEM
 function addItem() {
@@ -29,6 +34,7 @@ function addItem() {
 
     shoppingList.push(item);
 
+    saveToStorage();
     renderList();
 
     itemInput.value = "";
@@ -38,6 +44,7 @@ function addItem() {
 // CLEAR LIST
 function clearList() {
     shoppingList = [];
+    saveToStorage();
     renderList();
 }
 
@@ -63,24 +70,25 @@ function renderList() {
 
         li.textContent = `${item.name} - ${item.price}`;
 
-        
         if (item.purchased) {
             li.style.textDecoration = "line-through";
             li.style.color = "gray";
         }
 
-        
+        // toggle purchased
         li.addEventListener("click", function () {
             item.purchased = !item.purchased;
+            saveToStorage();
             renderList();
         });
 
-        
+        // edit item
         li.addEventListener("dblclick", function () {
             const newName = prompt("Edit item name:", item.name);
 
             if (newName !== null && newName.trim() !== "") {
                 item.name = newName;
+                saveToStorage();
                 renderList();
             }
         });
@@ -90,3 +98,6 @@ function renderList() {
 
     calculateTotal();
 }
+
+// INITIAL LOAD
+renderList();
