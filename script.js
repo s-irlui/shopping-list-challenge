@@ -47,12 +47,14 @@ function addItem() {
 
 const clearBtn = document.getElementById("clearBtn");
 clearBtn.addEventListener("click", clearList);
+addBtn.addEventListener("click", addItem);
 
 
 const itemInput = document.getElementById("itemInput");
 const itemPrice = document.getElementById("itemPrice");
 const addBtn = document.getElementById("addBtn");
 const shoppingListEl = document.getElementById("shoppingList");
+
 
 function renderList() {
     shoppingListEl.innerHTML = "";
